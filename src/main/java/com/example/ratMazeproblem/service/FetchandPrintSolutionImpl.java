@@ -38,15 +38,15 @@ public class FetchandPrintSolutionImpl implements FetchandPrintSolution {
 			
 			List<String> typeList = fetchTypeFromDB(status);
 			for(String typeItem: typeList) {
-				if(StringUtils.equals("TYPE2",typeItem)) {
+				if(StringUtils.equals("TYPE1",typeItem)) {
 					inputMaze = MazeConstants.TYPE1MAZE;
 				}
 				else {
-					inputMaze = MazeConstants.TYPE2MAZE;
+					inputMaze = MazeConstants.TYPE1MAZE;
 				}
 				if(BooleanUtils.isTrue(solvePath.findAllMazePath(inputMaze,inputMaze.length))){
 					String query = "update onemat.maze_table set status =\'UPDATED\' where type = \'%s\'";
-				 jdbc.update(String.format(query, typeItem));
+				// jdbc.update(String.format(query, typeItem));
 				}
 				
 			}

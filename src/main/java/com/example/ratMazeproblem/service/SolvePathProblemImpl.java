@@ -58,6 +58,9 @@ public class SolvePathProblemImpl implements SolvePathProblem {
 
 	            if (solveUntilSolution(maze, row, column + 1, solutionMatrix))
 	                return true;
+	            
+	            if (solveUntilSolution(maze, row - 1, column, solutionMatrix))
+	                return true;
 	 
 	            solutionMatrix[row][column] = 0;
 	            return false;
