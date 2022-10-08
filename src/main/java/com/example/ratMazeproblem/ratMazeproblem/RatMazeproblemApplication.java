@@ -8,7 +8,6 @@ public class RatMazeproblemApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RatMazeproblemApplication.class, args);
-		
 	}
 
 }
