@@ -8,14 +8,14 @@ public class SolvePathProblemImpl implements SolvePathProblem {
 
 	@Autowired
 	private CheckPathSafety checkPath;
-	
+	int solutionReachedFlag = 0;
 	
 	@Override
 	public boolean findAllMazePath(int [][] maze, int N) {
 		
 		int sol[][] = new int[N][N];
 		 
-        if (solveUntilSolution(maze, 0, 0, sol) == false) {
+        if (solveUntilSolution(maze, 0, 0, sol) == false && (solutionReachedFlag == 0)) {
             System.out.println("Solution doesn't exist");
             return false;
         }
@@ -61,6 +61,14 @@ public class SolvePathProblemImpl implements SolvePathProblem {
 	            
 	            if (solveUntilSolution(maze, row - 1, column, solutionMatrix))
 	                return true;
+	            
+	            if (solveUntilSolution(maze, row , column-1, solutionMatrix))
+	                return true;
+	            
+	            if(row ==3 && column == 4) {
+	            	solutionReachedFlag = 1;
+	            	return true;
+	            }
 	 
 	            solutionMatrix[row][column] = 0;
 	            return false;

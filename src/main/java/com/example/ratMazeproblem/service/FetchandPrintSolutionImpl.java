@@ -9,17 +9,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.example.ratMazeproblem.Constants.MazeConstants;
-import com.example.ratMazeproblem.repository.MazeRepository;
-
 import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
 @Service
 public class FetchandPrintSolutionImpl implements FetchandPrintSolution {
-
-	@Autowired
-	private MazeRepository mazeRepo;
 	
 	@Autowired
 	private SolvePathProblem solvePath;
@@ -46,7 +41,7 @@ public class FetchandPrintSolutionImpl implements FetchandPrintSolution {
 				}
 				if(BooleanUtils.isTrue(solvePath.findAllMazePath(inputMaze,inputMaze.length))){
 					String query = "update onemat.maze_table set status =\'UPDATED\' where type = \'%s\'";
-				// jdbc.update(String.format(query, typeItem));
+				  jdbc.update(String.format(query, typeItem));
 				}
 				
 			}
