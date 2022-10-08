@@ -46,7 +46,6 @@ public class FetchandPrintSolutionImpl implements FetchandPrintSolution {
 				}
 				if(BooleanUtils.isTrue(solvePath.findAllMazePath(inputMaze,inputMaze.length))){
 					String query = "update onemat.maze_table set status =\'UPDATED\' where type = \'%s\'";
-					
 				 jdbc.update(String.format(query, typeItem));
 				}
 				
