@@ -37,7 +37,7 @@ public class FetchandPrintSolutionImpl implements FetchandPrintSolution {
 					inputMaze = MazeConstants.TYPE1MAZE;
 				}
 				else {
-					inputMaze = MazeConstants.TYPE1MAZE;
+					inputMaze = MazeConstants.TYPE2MAZE;
 				}
 				if(BooleanUtils.isTrue(solvePath.findAllMazePath(inputMaze,inputMaze.length))){
 					String query = "update onemat.maze_table set status =\'UPDATED\' where type = \'%s\'";
